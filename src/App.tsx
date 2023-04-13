@@ -12,6 +12,7 @@ type ShareOptions = Partial<{
 	fontS: number;
 	fontF: string;
 	line: number;
+	theme: string;
 }>;
 
 const safeParseJson = (value: string) => {
@@ -33,8 +34,8 @@ const defaultCodeValue = `console.log('Welcome to Typescript Playground')
 `;
 
 function App() {
-	const onMount = (editor: editor.IStandaloneCodeEditor, _monaco: Monaco) => {
-		const { code, fontS, fontF, line } = parseShareOptionsFromQuery();
+	const onMount = (editor: editor.IStandaloneCodeEditor, monaco: Monaco) => {
+		const { code, fontS, fontF, line, theme } = parseShareOptionsFromQuery();
 		editor.updateOptions({
 			fontSize: fontS ?? defaultOptions.fontSize,
 			fontFamily: fontF ?? defaultOptions.fontFamily,
@@ -42,6 +43,7 @@ function App() {
 		editor.getModel();
 		editor.setValue(code ?? defaultCodeValue);
 		editor.setPosition({ column: 0, lineNumber: line ?? 1 });
+		monaco.editor.setTheme(theme ?? 'vs-dark');
 	};
 
 	return (
@@ -49,7 +51,6 @@ function App() {
 			<Editor
 				defaultLanguage='typescript'
 				defaultValue={defaultCodeValue}
-				theme='vs-dark'
 				onMount={onMount}
 			/>
 		</div>
