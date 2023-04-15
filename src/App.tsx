@@ -25,7 +25,11 @@ const safeParseJson = (value: string) => {
 
 const parseShareOptionsFromQuery = (): ShareOptions => {
 	const searchParams = new URLSearchParams(window.location.search);
+	console.log(searchParams);
+
 	const content = safeParseJson(window.atob(searchParams.get('q') ?? 'e30='));
+	console.log(content);
+
 	return content;
 };
 
@@ -36,6 +40,7 @@ const defaultCodeValue = `console.log('Welcome to Typescript Playground')
 function App() {
 	const onMount = (editor: editor.IStandaloneCodeEditor, monaco: Monaco) => {
 		const { code, fontS, fontF, line, theme } = parseShareOptionsFromQuery();
+
 		editor.updateOptions({
 			fontSize: fontS ?? defaultOptions.fontSize,
 			fontFamily: fontF ?? defaultOptions.fontFamily,

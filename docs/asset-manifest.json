@@ -1,12 +1,12 @@
 {
   "files": {
     "main.css": "/ts-play/static/css/main.cb877d3d.css",
-    "main.js": "/ts-play/static/js/main.88c1d5df.js",
+    "main.js": "/ts-play/static/js/main.ad22ea23.js",
     "static/js/27.7004a2b4.chunk.js": "/ts-play/static/js/27.7004a2b4.chunk.js",
     "index.html": "/ts-play/index.html"
   },
   "entrypoints": [
     "static/css/main.cb877d3d.css",
-    "static/js/main.88c1d5df.js"
+    "static/js/main.ad22ea23.js"
   ]
 }
