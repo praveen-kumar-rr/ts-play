@@ -3,7 +3,7 @@ import Editor, { Monaco } from '@monaco-editor/react';
 import { editor } from 'monaco-editor';
 
 const defaultOptions: editor.IStandaloneEditorConstructionOptions = {
-	fontSize: 15,
+	fontSize: 17,
 	fontFamily: 'Consolas, Menlo',
 };
 
@@ -25,11 +25,7 @@ const safeParseJson = (value: string) => {
 
 const parseShareOptionsFromQuery = (): ShareOptions => {
 	const searchParams = new URLSearchParams(window.location.search);
-	console.log(searchParams);
-
 	const content = safeParseJson(window.atob(searchParams.get('q') ?? 'e30='));
-	console.log(content);
-
 	return content;
 };
 
