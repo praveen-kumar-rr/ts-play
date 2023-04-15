@@ -44,6 +44,7 @@ function App() {
 		editor.getModel();
 		editor.setValue(code ?? defaultCodeValue);
 		editor.setPosition({ column: 0, lineNumber: line ?? 1 });
+		editor.revealLine(line ?? 1);
 		monaco.editor.setTheme(theme ?? 'vs-dark');
 	};
 
